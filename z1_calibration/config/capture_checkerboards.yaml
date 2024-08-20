@@ -1,0 +1,22 @@
+chains:
+  - name: manipulator
+    topic: /z1_joint_traj_controller/follow_joint_trajectory
+    joints:
+     - joint1
+     - joint2
+     - joint3
+     - joint4
+     - joint5
+     - joint6
+    planning_group: manipulator
+duration: 2.0
+features:
+  checkerboard_finder:
+    type: robot_calibration/CheckerboardFinder
+    topic: /camera/depth/color/points
+    camera_info_topic: /camera/depth/camera_info
+    camera_sensor_name: camera
+    chain_sensor_name: manipulator
+    points_x: 6
+    points_y: 4
+    size: 0.04

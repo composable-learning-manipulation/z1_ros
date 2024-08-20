@@ -1,0 +1,52 @@
+verbose: true
+base_link: world
+models:
+ - name: manipulator
+   type: chain
+   frame: ee_link
+ - name: camera
+   type: camera3d
+   frame: camera_link
+   topic: /camera/depth/color/points
+free_params:
+ - joint1
+ - joint2
+ - joint3
+ - joint4
+ - joint5
+ - joint6
+free_frames:
+ - name: static_camera_rgb_joint
+   x: true
+   y: true
+   z: true
+   roll: true
+   pitch: true
+   yaw: true
+ - name: checkerboard
+   x: true
+   y: false
+   z: true
+   roll: false
+   pitch: true
+   yaw: false
+error_blocks:
+ - name: restrict_checkerboard
+   type: chain3d_to_chain3d
+   model_a: camera
+   model_b: manipulator
+ - name: restrict_camera
+   type: outrageous
+   param: static_camera_rgb_joint
+   joint_scale: 0.0
+   position_scale: 0.1
+   rotation_scale: 0.1
+
+free_frames_initial_values:
+ - name: static_camera_rgb_joint
+   x: 0.0
+   y: 1.0
+   z: 2.0
+   roll: 0.0
+   pitch: 0.0
+   yaw: 0.0

@@ -1,0 +1,24 @@
+name: z1_ros
+
+services:
+  z1_ros:
+    image: z1-ros:noetic
+    container_name: z1_ros
+    build:
+      context: ./
+      args:
+        BASE_IMG: nvidia/opengl:1.2-glvnd-runtime-ubuntu20.04
+    environment:
+      - DISPLAY
+      - XAUTORITY
+      - QT_X11_NO_MITSHM=1
+    ipc: host
+    stdin_open: true
+    tty: true
+    network_mode: host
+    privileged: true
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /etc/localtime:/etc/localtime:ro
+      - /dev:/dev
+      - ./:/ros_ws/src/z1_ros/
