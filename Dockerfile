@@ -80,7 +80,7 @@ RUN apt-get update \
 RUN python3 -m pip install --upgrade pip
 RUN apt-get update \
     && apt-get install -y python3-pybind11 \
-    && apt-get install -y ros-${ROS_DISTRO}-pinocchio ros-${ROS_DISTRO}-robot-calibration \
+    && apt-get install -y ros-${ROS_DISTRO}-pinocchio \
         ros-${ROS_DISTRO}-trac-ik-kinematics-plugin \
     && sudo ln -s /usr/include/eigen3/Eigen /usr/include/Eigen \
     && rm -rf /var/lib/apt/lists/* && apt autoremove && apt clean

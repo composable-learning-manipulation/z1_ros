@@ -1,3 +1,6 @@
 [submodule "unitree_ros"]
 	path = unitree_ros
 	url = https://github.com/unitreerobotics/unitree_ros.git
+[submodule "robot_calibration"]
+	path = robot_calibration
+	url = git@github.com:composable-learning-manipulation/robot_calibration.git
