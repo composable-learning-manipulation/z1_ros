@@ -8,13 +8,13 @@ models:
    type: camera3d
    frame: camera_link
    topic: /camera/depth/color/points
-free_params:
- - joint1
- - joint2
- - joint3
- - joint4
- - joint5
- - joint6
+# free_params:
+#  - joint1
+#  - joint2
+#  - joint3
+#  - joint4
+#  - joint5
+#  - joint6
 free_frames:
  - name: static_camera_rgb_joint
    x: true
@@ -23,33 +23,33 @@ free_frames:
    roll: true
    pitch: true
    yaw: true
- - name: checkerboard_link
-   x: false
+ - name: joint_checkerboard
+   x: true
    y: false
    z: true
    roll: false
    pitch: false
-   yaw: false
+   yaw: true
 error_blocks:
  - name: restrict_checkerboard
    type: chain3d_to_chain3d
    model_a: camera
    model_b: manipulator
- - name: restrict_camera
-   type: outrageous
-   param: static_camera_rgb_joint
-   joint_scale: 0.0
-   position_scale: 0.1
-   rotation_scale: 0.1
+#  - name: restrict_camera
+#    type: outrageous
+#    param: static_camera_rgb_joint
+#    joint_scale: 0.0
+#    position_scale: 0.1
+#    rotation_scale: 0.1
 
 free_frames_initial_values:
  - name: static_camera_rgb_joint
    x: 0.85
-   y: -0.2
+   y: -0.5
    z: 0.55
    roll: 0.0
    pitch: 0.1
-   yaw: 3.14
+   yaw: 0.0
  - name: checkerboard_link
    x: 0.0
    y: 0.0

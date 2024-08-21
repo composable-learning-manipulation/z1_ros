@@ -17,7 +17,7 @@
     </joint>
 
     <joint name="static_camera_rgb_joint" type="fixed">
-        <origin rpy="0 0 0" xyz="0 1 2"/>
+        <origin rpy="0 0 0" xyz="0.85 -0.5 0.55"/>
         <parent link="world"/>
         <child link="camera_link"/>
     </joint>
