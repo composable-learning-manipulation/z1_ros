@@ -245,11 +245,18 @@
     </link>
 
     <joint name="joint_ee" type="fixed">
-        <origin rpy="0 ${PI/2.0} 0" xyz="0.051 0.0 0.0"/>
+        <origin rpy="0 ${PI/2} 0" xyz="0.051 0.0 0.0"/>
             <parent link="link06"/>
         <child link="ee_link"/>
     </joint>
     <link name="ee_link"/>
+
+    <joint name="joint_checkerboard" type="fixed">
+        <origin rpy="${PI} 0 ${PI/2}" xyz="0 0.0 0.0"/>
+            <parent link="ee_link"/>
+        <child link="checkerboard_link"/>
+    </joint>
+    <link name="checkerboard_link"/>
 
     <xacro:if value="$(arg UnitreeGripper)">
         <joint name="gripperStator" type="fixed">

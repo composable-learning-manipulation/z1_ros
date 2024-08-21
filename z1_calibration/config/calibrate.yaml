@@ -3,7 +3,7 @@ base_link: world
 models:
  - name: manipulator
    type: chain
-   frame: ee_link
+   frame: checkerboard_link
  - name: camera
    type: camera3d
    frame: camera_link
@@ -23,12 +23,12 @@ free_frames:
    roll: true
    pitch: true
    yaw: true
- - name: checkerboard
-   x: true
+ - name: checkerboard_link
+   x: false
    y: false
    z: true
    roll: false
-   pitch: true
+   pitch: false
    yaw: false
 error_blocks:
  - name: restrict_checkerboard
@@ -44,9 +44,16 @@ error_blocks:
 
 free_frames_initial_values:
  - name: static_camera_rgb_joint
-   x: 0.0
-   y: 1.0
-   z: 2.0
+   x: 0.85
+   y: -0.2
+   z: 0.55
    roll: 0.0
+   pitch: 0.1
+   yaw: 3.14
+ - name: checkerboard_link
+   x: 0.0
+   y: 0.0
+   z: 0.0
+   roll: 3.14
    pitch: 0.0
-   yaw: 0.0
+   yaw: 1.57079
