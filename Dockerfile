@@ -85,6 +85,8 @@ RUN apt-get update \
     && sudo ln -s /usr/include/eigen3/Eigen /usr/include/Eigen \
     && rm -rf /var/lib/apt/lists/* && apt autoremove && apt clean
 
+RUN apt-get update && apt-get install libceres-dev -y
+
 RUN mkdir src/z1_ros
 COPY ./ src/z1_ros
 
